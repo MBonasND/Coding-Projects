@@ -43,6 +43,7 @@ roses = function(n, d, steps = 100)
 ### Visualize Roses ###
 #######################
 
+#Plot grid of roses
 par(mfrow = c(4, 4), font.lab = 2, cex.lab = 1.5, cex.main = 1.5)
 all_d = seq(1, 4, 1)
 all_n = seq(1, 4, 1)
@@ -73,6 +74,14 @@ for(i in all_d)
          xlab = '')
   }
 }
+
+
+
+#Custom choices
+n = 11
+d = 3
+output = roses(n = n, d = d, steps = 1000)
+plot(output, type = 'l', axes = FALSE, ylab = '', xlab = '')
 
 
 
