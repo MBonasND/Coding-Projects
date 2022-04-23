@@ -1,6 +1,6 @@
 ############################################
 ############################################
-### Floyd Steinberg Dithering Simulation ###
+### Floyd-Steinberg Dithering Simulation ###
 ############################################
 ############################################
 
@@ -12,7 +12,7 @@ library(imager)
 
 
 ##########################################
-### Floyd Steinberg Dithering Function ###
+### Floyd-Steinberg Dithering Function ###
 ##########################################
 
 FSDithering = function(image, steps, verbose = FALSE)
@@ -86,8 +86,8 @@ FSDithering = function(image, steps, verbose = FALSE)
 
 
 #Load Images
-giraffe = load.image('giraffe.png') #256 x 154
-# dim(gorilla)
+giraffe = load.image('giraffe.png')
+# dim(giraffe)
 par(mfrow = c(2,3))
 plot(giraffe, axes = FALSE, main = 'Original')
 stepsize = rev(c(1,2,3,5,10))
@@ -104,14 +104,14 @@ plot(img, axes = FALSE, main = paste('Colors =', (i+1)^3))
 
 
 #Load Images
-giraffe = load.image('giraffe.png') #256 x 154
-giraffe = grayscale(giraffe)
-# dim(gorilla)
+giraffe = load.image('giraffe.png')
+giraffe = grayscale(as.cimg(giraffe[,,,-4]))
 par(mfrow = c(2,3))
 plot(giraffe, axes = FALSE, main = 'Original')
 stepsize = rev(c(1,2,3,5,10))
 for(i in stepsize)
 {
   img = FSDithering(giraffe, i, verbose = TRUE) 
-  plot(img, axes = FALSE, main = paste('Colors =', (i+1)^3))
+  plot(img, axes = FALSE, main = paste('Colors =', (i+1)))
 }
+
